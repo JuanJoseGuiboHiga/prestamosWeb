@@ -2,9 +2,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado Propuestas</title>
+<title>Listado de Propuestas de Prestamo</title>
 </head>
 <body>
-
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Id Propuesta</th>
+						<th>Id Solicitud</th>
+						<th>Monto</th>
+						<th>Plazo</th>
+						<th>TasaInteres</th>
+						<th>Comentario</th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr th:each="propuesta : ${propuestas}">
+				    	<td th:text="${propuesta.idPropuesta}"></td>
+						<td th:text="${propuesta.idSolicitud}"></td>
+						<td th:text="${propuesta.monto}"></td>
+						<td th:text="${propuesta.plazo}"></td>
+						<td th:text="${propuesta.tasaInteres}"></td>
+						<td th:text="${propuesta.comentario}"></td>
+				    </tr>
+				</tbody>
+			</table>
 </body>
 </html>

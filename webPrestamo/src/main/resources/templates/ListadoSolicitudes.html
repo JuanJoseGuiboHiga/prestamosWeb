@@ -2,9 +2,42 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Listado de Solicitudes de Prestamo</title>
 </head>
 <body>
-
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Id Solicitud</th>
+						<th>Id Solicitante</th>
+						<th>Motivo</th>
+						<th>Monto</th>
+						<th>Activo</th>
+						<th>Pasivo</th>
+						<th>Patrimonio</th>
+						<th>Costo</th>
+						<th>Venta Total</th>
+						<th>Gastos Administrativos</th>
+						<th>Gastos de Ventas</th>
+						<th>Margen de Utilidad</th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr th:each="solicitud : ${solicitudes}">
+				    	<td th:text="${solicitud.idSolicitud}"></td>
+						<td th:text="${solicitud.idSolicitante}"></td>
+						<td th:text="${solicitud.motivo}"></td>
+						<td th:text="${solicitud.monto}"></td>
+						<td th:text="${solicitud.activo}"></td>
+						<td th:text="${solicitud.pasivo}"></td>
+						<td th:text="${solicitud.patrimonio}"></td>
+						<td th:text="${solicitud.costo}"></td>
+						<td th:text="${solicitud.ventaTotal}"></td>
+						<td th:text="${solicitud.gastosAdministrativos}"></td>
+						<td th:text="${solicitud.gastosVentas}"></td>
+						<td th:text="${solicitud.margenUtilidad}"></td>
+				    </tr>
+				</tbody>
+			</table>
 </body>
 </html>
