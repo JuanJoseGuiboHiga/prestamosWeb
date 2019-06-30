@@ -1,8 +1,7 @@
-package com.prestamos;
+package com.prestamos.controllers;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
@@ -14,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-@Controller
-public class RegistrarSolicitudPrestamoController {
-	
-	  @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.GET)
-		public String mostrarSol(Model model) {
-		  return "RegistrarSolicitudPrestamo";
-		}
 
-	    @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.POST)
-		public String regSol(@RequestParam int idSolicitante, @RequestParam String motivo,@RequestParam double monto,@RequestParam double activo,@RequestParam double pasivo,
+@Controller
+public class SolicitudPrestamoController {
+	  @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.GET)
+	  public String mostrarSol(Model model) {
+		  return "RegistrarSolicitudPrestamo";
+	   }
+
+	   @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.POST)
+	   public String regSol(@RequestParam int idSolicitante, @RequestParam String motivo,@RequestParam double monto,@RequestParam double activo,@RequestParam double pasivo,
 				@RequestParam double patrimonio,@RequestParam double costo, @RequestParam double ventaTotal,  @RequestParam double gastosAdm,  @RequestParam double gastosVent,  @RequestParam double margenUti,
 				@RequestParam("file") MultipartFile file, Model model) {
 			  try {
@@ -45,14 +44,13 @@ public class RegistrarSolicitudPrestamoController {
 			  return "ListadoSolicitudes";
 		}
 	    
-		  @RequestMapping(value="/listadoSolicitudes",method=RequestMethod.GET)
-				public String listarPrestamos(Model model) {
-						  RestTemplate plantilla = new RestTemplate();
-						  String urlServicio = "http://localhost:8080/listadoSolicitudes";
-						  System.out.println(urlServicio);
-						  ResponseEntity<Object[]> response = plantilla.getForEntity(
-								  urlServicio, Object[].class);
-						  model.addAttribute("solicitudes",Arrays.asList(response.getBody()));
-					  return "ListadoSolicitudes";
-				}
+		@RequestMapping(value="/listadoSolicitudes",method=RequestMethod.GET)
+		public String listarPrestamos(Model model) {
+			RestTemplate plantilla = new RestTemplate();
+			String urlServicio = "http://localhost:8080/listadoSolicitudes";
+			System.out.println(urlServicio);
+			ResponseEntity<Object[]> response = plantilla.getForEntity(urlServicio, Object[].class);
+			model.addAttribute("solicitudes",Arrays.asList(response.getBody()));
+			return "ListadoSolicitudes";
+		  }
 }
