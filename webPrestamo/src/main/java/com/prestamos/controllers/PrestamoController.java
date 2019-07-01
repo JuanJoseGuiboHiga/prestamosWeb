@@ -10,15 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.prestamos.entities.Cliente;
+import com.prestamos.entities.Solicitante;
+
 @Controller
 public class PrestamoController {
 	  @RequestMapping(value="/RegistrarPrestamo",method=RequestMethod.POST)
 	  public String registrarPrestamo(@RequestParam int idPropuesta, @RequestParam String idCliente,@RequestParam double monto,@RequestParam String motivo,@RequestParam String estado, Model model) {
 		 RestTemplate plantilla = new RestTemplate();
 		 String urlServicio = "http://localhost:8080/registrarPrestamo/"+idPropuesta+"/"+idCliente+"/"+monto+"/"+motivo+"/"+estado+"/";
+		 Solicitante cliente = new Solicitante();
+		 String urlregCliente = "http://localhost:8080/registrarSolicitante/"+cliente.getNombre()+"/"+cliente.getTipoDocumento()+"/"+cliente.getNumeroDocumento()+"/"+cliente.getCorreo()+"/"+cliente.getTelefono();
 		 System.out.println(urlServicio);
-		 String resultado = plantilla.getForObject(urlServicio, String.class);
-		 model.addAttribute("mensaje",resultado);
+		 plantilla.getForObject(urlregCliente, String.class);
+		 plantilla.getForObject(urlServicio, String.class);
 		 return "RegistrarPrestamo";
 	  }
 	  

@@ -14,15 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.prestamos.entities.Solicitante;
+
 @Controller
 public class SolicitudPrestamoController {
+	  Solicitante solicitante ;
 	  @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.GET)
 	  public String mostrarSol(Model model) {
+		  solicitante = (Solicitante)model.asMap().get("solicitante");
 		  return "RegistrarSolicitudPrestamo";
 	   }
 
 	   @RequestMapping(value="/solicitudPrestamo",method=RequestMethod.POST)
-	   public String regSol(@RequestParam int idSolicitante, @RequestParam String motivo,@RequestParam double monto,@RequestParam double activo,@RequestParam double pasivo,
+	   public String regSol(@RequestParam String motivo,@RequestParam double monto,@RequestParam double activo,@RequestParam double pasivo,
 				@RequestParam double patrimonio,@RequestParam double costo, @RequestParam double ventaTotal,  @RequestParam double gastosAdm,  @RequestParam double gastosVent,  @RequestParam double margenUti,
 				@RequestParam("file") MultipartFile file, Model model) {
 			  try {
@@ -30,10 +34,8 @@ public class SolicitudPrestamoController {
 				  file.transferTo(new File(ruta));
 				  RestTemplate plantilla = new RestTemplate();
 				  String pdf = URLEncoder.encode(ruta,"UTF-8");
-				  String urlServicio = "http://localhost:8080/solPrestamo/"+idSolicitante+"/"+motivo+"/"+monto+"/"+activo+"/"+pasivo+"/"+patrimonio+"/"+costo+"/"+ventaTotal+"/"+gastosAdm+"/"+gastosVent+"/"+margenUti+"/"+pdf+"/";
-				  System.out.println(urlServicio);
-				  String resultado = plantilla.getForObject("http://localhost:8080/solPrestamo/"+idSolicitante+"/"+motivo+"/"+monto+"/"+activo+"/"+pasivo+"/"+patrimonio+"/"+costo+"/"+ventaTotal+"/"+gastosAdm+"/"+gastosVent+"/"+margenUti+"/"+pdf+"/", String.class);
-				  model.addAttribute("mensaje",resultado);
+				  String urlServicio = "http://localhost:8080/registrarSolPres/"+solicitante.getIdSolicitante()+"/"+motivo+"/"+monto+"/"+activo+"/"+pasivo+"/"+patrimonio+"/"+costo+"/"+ventaTotal+"/"+gastosAdm+"/"+gastosVent+"/"+margenUti+"/"+pdf+"/";
+				  plantilla.getForObject(urlServicio, String.class);
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -41,7 +43,7 @@ public class SolicitudPrestamoController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			  return "ListadoSolicitudes";
+			  return "login";
 		}
 	    
 		@RequestMapping(value="/listadoSolicitudes",method=RequestMethod.GET)
