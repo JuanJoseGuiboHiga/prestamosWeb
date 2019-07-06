@@ -17,8 +17,8 @@ public class SolicitanteController {
 	   }
 	  
 	   @RequestMapping(value="/registrarSolicitante",method=RequestMethod.POST)
-	   public String regSol(@RequestParam String nombre,@RequestParam String tipoDocumento,@RequestParam String numDoc,@RequestParam String correo,
-				@RequestParam int telefono, Model model,RedirectAttributes redirectAttributes) {
+	   public String regSol(@RequestParam String nombre,@RequestParam String tipoDocumento,@RequestParam String numDoc,@RequestParam String correo,@RequestParam int telefono, Model model
+			   , RedirectAttributes redirectAttributes ) {
 			  try {
 				  RestTemplate plantilla = new RestTemplate();
 				  String urlServicio = "http://localhost:8080/registrarSolicitante/"+nombre+"/"+tipoDocumento+"/"+numDoc+"/"+correo+"/"+telefono;

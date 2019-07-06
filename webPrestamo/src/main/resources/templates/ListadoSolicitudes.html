@@ -3,31 +3,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listado de Solicitudes de Prestamo</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-			<table class="table table-striped table-hover">
+			<table class="table-striped" width="80%" height="100%" align="center">
 				<thead>
 					<tr>
-						<th>Id Solicitud</th>
-						<th>Id Solicitante</th>
-						<th>Motivo</th>
-						<th>Monto</th>
-						<th>Activo</th>
-						<th>Pasivo</th>
-						<th>Patrimonio</th>
-						<th>Costo</th>
-						<th>Venta Total</th>
-						<th>Gastos Administrativos</th>
-						<th>Gastos de Ventas</th>
-						<th>Margen de Utilidad</th>
+						<th scope="col">Id Solicitud</th>
+						<th scope="col">Id Solicitante</th>
+						<th scope="col">Motivo</th>
+						<th scope="col">Monto</th>
+						<th scope="col">Plazo</th>
+						<th scope="col">Activo</th>
+						<th scope="col">Pasivo</th>
+						<th scope="col">Patrimonio</th>
+						<th scope="col">Costo</th>
+						<th scope="col">Venta Total</th>
+						<th scope="col">Gastos Administrativos</th>
+						<th scope="col">Gastos de Ventas</th>
+						<th scope="col">Margen de Utilidad</th>
 					</tr>
 				</thead>
 				<tbody>
-				    <tr th:each="solicitud : ${solicitudes}">
+				    <tr scope="row" th:each="solicitud : ${solicitudes}">
 				    	<td th:text="${solicitud.idSolicitud}"></td>
 						<td th:text="${solicitud.idSolicitante}"></td>
 						<td th:text="${solicitud.motivo}"></td>
 						<td th:text="${solicitud.monto}"></td>
+						<td th:text="${solicitud.plazo}"></td>
 						<td th:text="${solicitud.activo}"></td>
 						<td th:text="${solicitud.pasivo}"></td>
 						<td th:text="${solicitud.patrimonio}"></td>
@@ -36,6 +39,10 @@
 						<td th:text="${solicitud.gastosAdministrativos}"></td>
 						<td th:text="${solicitud.gastosVentas}"></td>
 						<td th:text="${solicitud.margenUtilidad}"></td>
+				        <td><a th:href="@{/registrarPropuesta/{idSolicitud}/{monto}/{plazo} (idSolicitud=${solicitud.idSolicitud}, monto=${solicitud.monto},plazo=${solicitud.plazo})}">Generar Propuesta</a></td>	
+						<td><a th:href="@{/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdministrativos}/{gastosVentas}/{margenUtilidad}
+                		 (idSolicitud=${solicitud.idSolicitud}, activo=${solicitud.activo},pasivo=${solicitud.pasivo},patrimonio=${solicitud.patrimonio},costo=${solicitud.costo},ventaTotal=${solicitud.ventaTotal},gastosAdministrativos=${solicitud.gastosAdministrativos},
+                		 gastosVentas=${solicitud.gastosVentas},margenUtilidad=${solicitud.margenUtilidad})}">Ver Solicitud</a></td>
 				    </tr>
 				</tbody>
 			</table>

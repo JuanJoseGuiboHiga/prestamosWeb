@@ -4,33 +4,23 @@
 <meta charset="ISO-8859-1">
 <title>Registrar Prestamo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 			<form  method="post" enctype="multipart/form-data" class="form-horizontal">
             	<fieldset>
-            	   <div class="form-group">
-	                    <label class="col-lg-3 control-label">id Cliente</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="idSolicitante"/>
-	                    </div>
-                	</div>
                 	<div class="form-group">
-	                    <label class="col-lg-3 control-label">id Propuesta</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="idSolicitante"/>
-	                    </div>
-                	</div>
-                	                	<div class="form-group">
 	                    <label class="col-lg-3 control-label">Monto</label>
 	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="monto"/>
+	                    	<input type="text" class="form-control" name ="monto" disabled="disabled" 
+	                    		th:value="${solicitud.monto}"/>
 	                    </div>
                 	</div>
             		<div class="form-group">
 	                    <label class="col-lg-3 control-label">Motivo</label>
 	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="motivo"/>
+	                    	<input type="text" class="form-control" name ="motivo" disabled="disabled" 
+	                    		th:value="${solicitud.motivo}"/>
 	                    </div>
                 	</div>
             		<div class="form-group">

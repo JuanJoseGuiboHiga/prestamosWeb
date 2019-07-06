@@ -6,6 +6,7 @@ public class SolicitudPrestamo {
 	  private int idSolicitante;
 	  private String motivo;
 	  private double monto;
+	  private String plazo;
 	  private String estado;
 	  private double activo;
 	  private double pasivo;
@@ -138,5 +139,14 @@ public class SolicitudPrestamo {
 		public void setPdf(String pdf) {
 			this.pdf = pdf;
 		}
+
+		public String getPlazo() {
+			return plazo;
+		}
+
+		public void setPlazo(String plazo) {
+			this.plazo = plazo;
+		}
+		
 
 }

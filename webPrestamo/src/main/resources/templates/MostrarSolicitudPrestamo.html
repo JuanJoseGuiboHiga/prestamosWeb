@@ -4,92 +4,27 @@
 <meta charset="ISO-8859-1">
 <title>Solicitud Prestamo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 			<form  method="post" enctype="multipart/form-data" class="form-horizontal">
             	<fieldset>
-            	   <div class="form-group">
-	                    <label class="col-lg-3 control-label">id Solicitante</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="idSolicitante"/>
-	                    </div>
-                	</div>
-            		<div class="form-group">
-	                    <label class="col-lg-3 control-label">Motivo</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="motivo"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Monto</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="monto"/>
-	                    </div>
-                	</div>
-                	 <div class="form-group">
-	                    <label class="col-lg-3 control-label">Activo</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="activo"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Pasivo</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="pasivo"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Patrimonio</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="patrimonio"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Costo</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="costo"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Venta Total</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="ventaTotal"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Gastos Administrativos</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="gastosAdm"/>
-	                    </div>
-                	</div>
-                	 <div class="form-group">
-	                    <label class="col-lg-3 control-label">Gastos de Ventas</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="gastosVent"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Margen de Utilidad</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name="margenUti"/>
-	                    </div>
-                	</div>
-                	<div class="form-group">
-                	        <tr>
-         				   <td><form:label path="file">Adjuntar PDF</form:label></td>
-           					 <td><input type="file" name="file" /></td>
-       						 </tr>
-                	</div>
-
-            		<div class="form-group">
-                		<div class="col-lg-12 col-lg-offset-3">
-                			<button type="submit" class="btn btn-primary" name="button">Retornar</button>
-                		</div>
-                	</div>
+            <p>Según la data histórica es muy probable que el cliente pueda llegar a ser:<p>
+			<p th:text="${arbol}"></p> <p>Pagador</p>
+			<p>Ratio Activo / Pasivo<p>
+			<p th:text="${ratios.ratio1}"></p>
+			<p>Ratio Pasivo / Patrimonio<p>
+			<p th:text="${ratios.ratio2}"></p>
+			<p>Ratio Costo / Venta Total<p>
+			<p th:text="${ratios.ratio3}"></p>
+			<p>Ratio Gastos Administrativos / Gsatos de Ventas<p>
+			<p th:text="${ratios.ratio4}"></p>
+			<p>Ratio Gastos de Venta / Venta Total<p>
+			<p th:text="${ratios.ratio5}"></p>
+			<p>Ratio Margen de Utilidad / Venta Total<p>
+			<p th:text="${ratios.ratio6}"></p>
                 </fieldset>
             </form>
-            <p>Es muy probable que este cliente sea:<p>
-			<p th:text="${solicitud.estado}"></p>
+
 </body>
 </html>
