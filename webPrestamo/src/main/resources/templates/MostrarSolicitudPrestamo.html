@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Solicitud Prestamo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-			<form  method="post" enctype="multipart/form-data" class="form-horizontal">
-            	<fieldset>
-            <p>Según la data histórica es muy probable que el cliente pueda llegar a ser:<p>
-			<p th:text="${arbol}"></p> <p>Pagador</p>
-			<p>Ratio Activo / Pasivo<p>
-			<p th:text="${ratios.ratio1}"></p>
-			<p>Ratio Pasivo / Patrimonio<p>
-			<p th:text="${ratios.ratio2}"></p>
-			<p>Ratio Costo / Venta Total<p>
-			<p th:text="${ratios.ratio3}"></p>
-			<p>Ratio Gastos Administrativos / Gsatos de Ventas<p>
-			<p th:text="${ratios.ratio4}"></p>
-			<p>Ratio Gastos de Venta / Venta Total<p>
-			<p th:text="${ratios.ratio5}"></p>
-			<p>Ratio Margen de Utilidad / Venta Total<p>
-			<p th:text="${ratios.ratio6}"></p>
-                </fieldset>
-            </form>
-
+			<nav class="navbar navbar-default">
+			<ul class="nav nav-pills">
+			  <li class="nav-item">
+			    <a class="nav-link" href="/listadoSolicitudes">Listado de Solicitudes</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/listadoPropuestas">Listado de Propuestas</a>
+			  </li>
+			</ul>
+			</nav>
+<section id="loginform" class="outer-wrapper">
+   <div class="inner-wrapper">
+      <div class="container">
+		   <h2 class="text-center">Solicitud de Prestamo</h2>
+		   <form  method="post" enctype="multipart/form-data">
+		 	<fieldset>
+		        <div class="form-group">
+			       <label for="ratio1">Ratio Activo / Pasivo</label>
+			       <input id="ratio1"  type="text" class="form-control" name="ratio1" th:value="${ratios.ratio1}" disabled="disabled" />
+		        </div>
+		        <div class="form-group">
+			       <label for="ratio2">Ratio Pasivo / Patrimonio</label>
+			       <input id=""ratio2"" type="text" class="form-control" name="ratio2" th:value="${ratios.ratio2}" disabled="disabled"  />
+		       </div>
+		       <div class="form-group">
+			       <label for="ratio3">Ratio Costo / Venta Total</label>
+			       <input id=""ratio3"" type="text" class="form-control" name="ratio3" th:value="${ratios.ratio3}" disabled="disabled" />
+		       </div>
+		       <div class="form-group">
+			       <label for="ratio4">Ratio Gastos Administrativos / Gastos de Ventas</label>
+			       <input id=""ratio4"" type="text" class="form-control" name="ratio4" th:value="${ratios.ratio4}" disabled="disabled" />
+		       </div>
+		       <div class="form-group">
+			       <label for="ratio5">Ratio Gastos de Venta / Venta Total</label>
+			       <input id=""ratio5"" type="text" class="form-control" name="ratio5" th:value="${ratios.ratio5}" disabled="disabled" />
+		       </div>
+		       <div class="form-group">
+			       <label for="ratio6">Ratio Margen de Utilidad / Venta Total</label>
+			       <input id=""ratio6"" type="text" class="form-control" name="ratio6" th:value="${ratios.ratio6}" disabled="disabled" />
+		       </div>
+		       <div class="card bg-light mb-3" style="max-width: 18rem;">
+ 					 <div class="card-header">PronÃ³stico</div>
+ 					 <div class="card-body">
+    					 <h5 class="card-title">Estimamos que el solicitante puede llegar a ser un:</h5>
+   						 <p class="card-text" th:text="${arbol}"></p>
+ 					 </div>
+			   </div>       
+		     </fieldset>
+		    </form>
+       </div>
+   </div>
+</section>
 </body>
 </html>

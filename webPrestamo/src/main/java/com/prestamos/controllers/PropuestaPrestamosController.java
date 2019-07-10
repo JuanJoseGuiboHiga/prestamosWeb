@@ -41,8 +41,8 @@ public class PropuestaPrestamosController {
 	@RequestMapping(value="/editarPropuesta/{idPropuesta}",method=RequestMethod.POST)
 	public String developersAdd(@PathVariable String idPropuesta, @RequestParam String estado,Model model) {
 		RestTemplate plantilla = new RestTemplate();
-		String resultado = plantilla.getForObject("http://localhost:8080/actualizarPropuesta/"+idPropuesta+"/Aprobado", String.class);
-		return "login";
+		String resultado = plantilla.getForObject("http://localhost:8080/actualizarPropuesta/"+idPropuesta+"/"+estado, String.class);
+		return "redirect:/listadoPropuestas";
 	}
 	
 	@RequestMapping(value="/registrarPropuesta/{idSolicitud}/{monto}/{plazo}",method=RequestMethod.GET)
@@ -61,6 +61,6 @@ public class PropuestaPrestamosController {
 		  String urlServicio = "http://localhost:8080/registrarPropuestaPrestamo/"+id+"/"+montoURL+"/"+plazoURL+"/"+tasaInteres+"/"+comentario+"/Creada";
 		  System.out.println(urlServicio);
 		  plantilla.getForObject(urlServicio, String.class);
-		  return "login";
+		  return "redirect:/listadoPropuestas";
 	}
 }

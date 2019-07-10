@@ -83,7 +83,7 @@ public class SolicitudPrestamoController {
 			return "MostrarSolicitudPrestamo";
 		  }
     	
-    	@RequestMapping(value="/mostrarSolicitud",method=RequestMethod.POST)
+    	@RequestMapping(value="/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdm}/{gastosVent}/{margenUti}",method=RequestMethod.POST)
 		public String retornarMostrarSolicitud (Model model) {
 			return "ListadoSolicitudes";
 		  }

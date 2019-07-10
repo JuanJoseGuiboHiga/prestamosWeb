@@ -4,31 +4,44 @@
 <meta charset="ISO-8859-1">
 <title>Registrar Prestamo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-			<form  method="post" enctype="multipart/form-data" class="form-horizontal">
-            	<fieldset>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Monto</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name ="monto" disabled="disabled" 
+
+			<nav class="navbar navbar-default">
+			<ul class="nav nav-pills">
+			  <li class="nav-item">
+			    <a class="nav-link" href="/listadoSolicitudes">Listado de Solicitudes</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/listadoPropuestas">Listado de Propuestas</a>
+			  </li>
+			</ul>
+			</nav>
+<section id="loginform" class="outer-wrapper">
+
+  <div class="inner-wrapper">
+<div class="container">
+      <h2 class="text-center">Registrar Prestamo</h2>
+   <form  method="post" enctype="multipart/form-data">
+ 	<fieldset>
+            	   <div class="form-group">
+	                    <label for="monto">Monto</label>
+	                     <input id="monto"  type="text" class="form-control" disabled="disabled" 
 	                    		th:value="${solicitud.monto}"/>
-	                    </div>
                 	</div>
             		<div class="form-group">
-	                    <label class="col-lg-3 control-label">Motivo</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" name ="motivo" disabled="disabled" 
-	                    		th:value="${solicitud.motivo}"/>
-	                    </div>
+	                    <label for="motivo">Motivo</label>
+	                    <input id="motivo" type="text" class="form-control" name="motivo"
+	                    th:value="${solicitud.motivo}"/>
                 	</div>
-            		<div class="form-group">
-                		<div class="col-lg-12 col-lg-offset-3">
-                			<button type="submit" class="btn btn-primary" name="button">Registrar</button>
-                		</div>
-                	</div>
+                	<button type="submit" class="btn btn-primary" name="registrar">Registrar</button>
                 </fieldset>
             </form>
+
+</div>
+</div>
+
+</section>
 </body>
 </html>
