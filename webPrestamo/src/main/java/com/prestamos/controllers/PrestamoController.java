@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.prestamos.entities.Cliente;
+import com.prestamos.entities.Prestamo;
 import com.prestamos.entities.Solicitante;
 import com.prestamos.entities.SolicitudPrestamo;
 
@@ -38,7 +39,9 @@ public class PrestamoController {
 			 String urlregCliente = "http://localhost:8080/registrarCliente/"+cliente.getNombre()+"/"+cliente.getTipoDocumento()+"/"+cliente.getNumeroDocumento()+"/"+cliente.getCorreo()+"/"+cliente.getTelefono();
 			 String idCliente = plantilla.getForObject(urlregCliente, String.class);
 			 String urlServicio = "http://localhost:8080/registrarPrestamo/"+propuesta+"/"+Integer.parseInt(idCliente)+"/"+solicitudPrestamo.getMonto()+"/"+solicitudPrestamo.getMotivo();
-			 plantilla.getForObject(urlServicio, int.class);
+			 Prestamo prestamo = plantilla.getForObject(urlServicio,  Prestamo.class);
+			 String urlCuota = "http://localhost:8080/registrarCuota/"+Integer.parseInt(idCliente)+"/"+prestamo.getIdPrestamo()+"/"+solicitudPrestamo.getMonto()+"/"+solicitudPrestamo.getPlazo();
+			 plantilla.getForObject(urlCuota, int.class);
 			 return "redirect:/listadoPropuestas";
 	  }
 	  
