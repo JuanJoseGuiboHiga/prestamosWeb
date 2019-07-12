@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Registrar Solicitud Prestamo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,48 +14,63 @@
 	   <form  method="post" enctype="multipart/form-data">
 	 	<fieldset>
              	<div class="form-group">
-		            <label for="motivo">Motivo</label>
-		             <input id="motivo" type="text" class="form-control" name="motivo"/>
+		            <label for="motivo">Motivo</label>      
+		             <select id = "motivo" class="form-control" name = "motivo">
+						   <option value = "CapitalDeTrabajo">Capital de Trabajo</option>
+						   <option value = "CompraDeuda">Compra de Deuda</option>
+						   <option value = "CreditoVehicular">Credito Vehicular</option>
+						   <option value = "CompraLocal">Compra de Local</option>
+						   <option value = "CreditoHipotecario">Credito Hipotecario</option>
+						   <option value = "ObligationesCortoPlazo">Obligaciones a Corto Plazo</option>
+						   <option value = "CampañaEscolar">Campaña Escolar</option>
+						   <option value = "ReposiciónStock">Reposición de Stock</option>
+					</select>
 	             </div>
 	             <div class="form-group">
 		              <label for="monto">Monto</label>
-		              <input id="monto" type="text" class="form-control" name="monto"/>
+		              <input id="monto"  type="number" class="form-control" name="monto"/>
 	              </div>
 	              <div class="form-group">
 		              <label for="plazo">Plazo</label>
-		               <input id="plazo" type="text" class="form-control" name="plazo"/>
+		             <select id = "plazo" class="form-control" name = "plazo">
+						   <option value = "6">6 Meses</option>
+						   <option value = "12">12 Meses</option>
+						   <option value = "18">18 Meses</option>
+						   <option value = "36">36 Meses</option>
+						   <option value = "48">48 Meses</option>
+					</select>
 	              </div>
 	              <div class="form-group">
 		               <label for="activo">Activo</label>
-		               <input id="activo" type="text" class="form-control" name="activo"/>
+		               <input id="activo"  type="number" class="form-control" name="activo"/>
 	              </div>
 	              <div class="form-group">
 		                <label for="pasivo">Pasivo</label>
-		                <input id="pasivo" type="text" class="form-control" name="pasivo"/>
+		                <input id="pasivo"  type="number" class="form-control" name="pasivo"/>
 	               </div>
 	               <div class="form-group">
 		                 <label for="patrimonio">Patrimonio</label>
-		                 <input id="patrimonio" type="text" class="form-control" name="patrimonio"/>
+		                 <input id="patrimonio"  type="number" class="form-control" name="patrimonio"/>
 	               </div>
 	               <div class="form-group">
 		                 <label for="costo">Costo</label>
-		                 <input id="costo" type="text" class="form-control" name="costo"/>
+		                 <input id="costo"  type="number" class="form-control" name="costo"/>
 	              	</div>
 	                <div class="form-group">
 		                 <label for="ventaTotal">Venta Total</label>
-		                 <input id="ventaTotal" type="text" class="form-control" name="ventaTotal"/>
+		                 <input id="ventaTotal"  type="number" class="form-control" name="ventaTotal"/>
 	                </div>
 	                <div class="form-group">
 		                <label for="gastosAdministrativos">Gastos Administrativos</label>
-		                <input id="gastosAdministrativos" type="text" class="form-control" name="gastosAdm"/>
+		                <input id="gastosAdministrativos"  type="number" class="form-control" name="gastosAdm"/>
 	                </div>
 	                <div class="form-group">
 		                <label for="gastosVentas">Gastos de Ventas</label>
-		                <input id="gastosVentas" type="text" class="form-control" name="gastosVent"/>
+		                <input id="gastosVentas"  type="number" class="form-control" name="gastosVent"/>
 	                </div>
 	                <div class="form-group">
 		                 <label for="margenUtilidad">Margen de Utilidad</label>
-		                 <input  id="margenUtilidad" type="text" class="form-control" name="margenUti"/>
+		                 <input  id="margenUtilidad"  type="number" class="form-control" name="margenUti"/>
 	                </div>
 	                <div class="form-group">
 	                	        <tr>

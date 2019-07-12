@@ -48,7 +48,7 @@ public class SolicitudPrestamoController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			  return "login";
+			  return "registroExitoso";
 		}
 	    
 		@RequestMapping(value="/listadoSolicitudes",method=RequestMethod.GET)

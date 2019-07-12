@@ -39,7 +39,7 @@ public class PrestamoController {
 			 String idCliente = plantilla.getForObject(urlregCliente, String.class);
 			 String urlServicio = "http://localhost:8080/registrarPrestamo/"+propuesta+"/"+Integer.parseInt(idCliente)+"/"+solicitudPrestamo.getMonto()+"/"+solicitudPrestamo.getMotivo();
 			 plantilla.getForObject(urlServicio, int.class);
-			 return "login";
+			 return "redirect:/listadoPropuestas";
 	  }
 	  
 	  @RequestMapping(value="/listadoPrestamos",method=RequestMethod.GET)

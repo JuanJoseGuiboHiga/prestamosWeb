@@ -16,11 +16,14 @@
                 	</div>
                 	<div class="form-group">
 	                    <label for="tipoDoc">Tipo de Documento</label>
-	                    <input id="tipoDoc" type="text" class="form-control" name="tipoDocumento"/>
+	                    <select id = "tipoDocumento" class="form-control" name = "tipoDocumento">
+						   <option value = "DNI">DNI</option>
+						   <option value = "RUC">RUC </option>
+					     </select>
                 	</div>
             		<div class="form-group">
 	                    <label for="numDoc">Numero Documento</label>
-	                    <input for="numDoc" type="text" class="form-control" name="numDoc"/>
+	                    <input for="numDoc"  type="number" class="form-control" name="numDoc"/>
                 	</div>
                 	<div class="form-group">
 	                    <label for="correo" >Correo Electronico</label>
@@ -28,7 +31,7 @@
                 	</div>
                 	<div class="form-group">
 	                    <label for="telefono">Telefono</label>
-	                    <input for="telefono" type="text" class="form-control" name="telefono"/>
+	                    <input for="telefono"  type="number" class="form-control" name="telefono"/>
                 	</div>
                 	<button type="submit" class="btn btn-primary" name="button">Registrar</button>
                 </div>
