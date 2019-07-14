@@ -32,6 +32,17 @@ public class PropuestaPrestamosController {
 		return "ListadoPropuestas";
 	}
 	
+	@RequestMapping(value="/listadoParaRegistrarPrestamo",method=RequestMethod.GET)
+	public String listadoParaRegistrarPrestamos(Model model) {
+		RestTemplate plantilla = new RestTemplate();
+		String urlServicio = "http://localhost:8080/listarPropuestasPrestamosAprobados";
+		System.out.println(urlServicio);
+		ResponseEntity<Object[]> response = plantilla.getForEntity(
+		urlServicio, Object[].class);
+		model.addAttribute("propuestas",Arrays.asList(response.getBody()));
+		return "ListadoPropuestasFinanciero";
+	}
+	
 	@RequestMapping(value="/editarPropuesta/{idPropuesta}",method=RequestMethod.GET)
 	public String mostrarPropuesta(@PathVariable int idPropuesta, Model model) {
 		 model.addAttribute("idPropuesta",idPropuesta);
@@ -39,9 +50,11 @@ public class PropuestaPrestamosController {
 	}
 
 	@RequestMapping(value="/editarPropuesta/{idPropuesta}",method=RequestMethod.POST)
-	public String developersAdd(@PathVariable String idPropuesta, @RequestParam String estado,Model model) {
+	public String actualizarPropuesta(@PathVariable String idPropuesta, @RequestParam String estado,Model model) {
 		RestTemplate plantilla = new RestTemplate();
-		String resultado = plantilla.getForObject("http://localhost:8080/actualizarPropuesta/"+idPropuesta+"/"+estado, String.class);
+		System.out.println(estado);
+		String resultado = plantilla.getForObject("http://localhost:8080/actualizarPropuesta/"+idPropuesta+"/"+estado+"/", String.class);
+		String actualizarSolicitud = plantilla.getForObject("http://localhost:8080/actualizarEstadoSolicitud/"+id+"/"+estado, String.class);
 		return "redirect:/listadoPropuestas";
 	}
 	
@@ -50,8 +63,12 @@ public class PropuestaPrestamosController {
 		 id = idSolicitud;
 		 montoURL = monto;
 		 plazoURL = plazo;
+		 RestTemplate plantilla = new RestTemplate();
+		 SolicitudPrestamo solicitud = plantilla.getForObject("http://localhost:8080/devolverSolicitud/"+idSolicitud, SolicitudPrestamo.class);
+		 String tasaInteres = plantilla.getForObject("http://localhost:8080/tasaInteresRecomendada/"+solicitud.getMotivo()+"/"+monto, String.class);
 		 model.addAttribute("monto",monto);
 		 model.addAttribute("plazo",plazo);
+		 model.addAttribute("tasaInteres",tasaInteres);
 		 return "RegistrarPropuestaPrestamos";
 	}
 	

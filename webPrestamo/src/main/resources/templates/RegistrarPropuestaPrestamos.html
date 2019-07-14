@@ -33,13 +33,18 @@
 	           	         <input id="plazo"  type="text" class="form-control" disabled="disabled" 
 	                    		th:value="${plazo}"/>
                 	</div>
+                	 <div class="form-group">
+	                    <label for="tasaInteresRecomendada">Tasa de Interes Recomendada</label>
+	           	         <input id="tasaInteresRecomendada"  type="text" class="form-control" disabled="disabled" 
+	                    		th:value="${tasaInteres}"/>
+                	</div>
                 	<div class="form-group">
 	                    <label for="tasaInteres">Tasa de Interes</label>
-	                    	<input id="tasaInteres"   type="number" class="form-control" name="tasaInteres"/>
+	                    	<input id="tasaInteres"   type="number" class="form-control" name="tasaInteres" placeholder="Ingrese Tasa de Interes" min="1" required/>
                 	</div>
                 	<div class="form-group">
 	                    <label for="comentario">Comentario</label>
-	                    <input id="comentario"  type="text" class="form-control" name="comentario"/>
+	                    <input id="comentario"  type="text" class="form-control" name="comentario" placeholder="Ingrese comentario" required/>
                 	</div>
                 	<button type="submit" class="btn btn-primary" name="button">Registrar</button>
 	                </fieldset>

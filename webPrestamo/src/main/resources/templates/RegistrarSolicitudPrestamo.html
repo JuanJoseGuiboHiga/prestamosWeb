@@ -16,19 +16,19 @@
              	<div class="form-group">
 		            <label for="motivo">Motivo</label>      
 		             <select id = "motivo" class="form-control" name = "motivo">
-						   <option value = "CapitalDeTrabajo">Capital de Trabajo</option>
-						   <option value = "CompraDeuda">Compra de Deuda</option>
-						   <option value = "CreditoVehicular">Credito Vehicular</option>
-						   <option value = "CompraLocal">Compra de Local</option>
-						   <option value = "CreditoHipotecario">Credito Hipotecario</option>
-						   <option value = "ObligationesCortoPlazo">Obligaciones a Corto Plazo</option>
-						   <option value = "CampañaEscolar">Campaña Escolar</option>
-						   <option value = "ReposiciónStock">Reposición de Stock</option>
+						   <option value = "Capital De Trabajo">Capital de Trabajo</option>
+						   <option value = "Compra de Deuda">Compra de Deuda</option>
+						   <option value = "Credito Vehicular">Credito Vehicular</option>
+						   <option value = "Compra de Local">Compra de Local</option>
+						   <option value = "Credito Hipotecario">Credito Hipotecario</option>
+						   <option value = "Obligationes a Corto Plazo">Obligaciones a Corto Plazo</option>
+						   <option value = "Campaña Escolar">Campaña Escolar</option>
+						   <option value = "Reposición de Stock">Reposición de Stock</option>
 					</select>
 	             </div>
 	             <div class="form-group">
 		              <label for="monto">Monto</label>
-		              <input id="monto"  type="number" class="form-control" name="monto" placeholder="Ingrese monto" required/>
+		              <input id="monto"  type="number" class="form-control" name="monto" placeholder="Ingrese monto" min="1" required/>
 	              </div>
 	              <div class="form-group">
 		              <label for="plazo">Plazo</label>
@@ -36,41 +36,42 @@
 						   <option value = "6">6 Meses</option>
 						   <option value = "12">12 Meses</option>
 						   <option value = "18">18 Meses</option>
+						   <option value = "24">24 Meses</option>
 						   <option value = "36">36 Meses</option>
 						   <option value = "48">48 Meses</option>
 					</select>
 	              </div>
 	              <div class="form-group">
 		               <label for="activo">Activo</label>
-		               <input id="activo"  type="number" class="form-control" name="activo" placeholder="Ingrese valor de Activo" required/>
+		               <input id="activo"  type="number" class="form-control" name="activo"  placeholder="Ingrese valor de Activo"  min="1" required/>
 	              </div>
 	              <div class="form-group">
 		                <label for="pasivo">Pasivo</label>
-		                <input id="pasivo"  type="number" class="form-control" name="pasivo" placeholder="Ingrese valor de Pasivo" required/>
+		                <input id="pasivo"  type="number" class="form-control" name="pasivo" placeholder="Ingrese valor de Pasivo" min="1" required/>
 	               </div>
 	               <div class="form-group">
 		                 <label for="patrimonio">Patrimonio</label>
-		                 <input id="patrimonio"  type="number" class="form-control" name="patrimonio" placeholder="Ingrese valor de Patrimonio" required/>
+		                 <input id="patrimonio"  type="number" class="form-control" name="patrimonio" placeholder="Ingrese valor de Patrimonio" min="1" required/>
 	               </div>
 	               <div class="form-group">
 		                 <label for="costo">Costo</label>
-		                 <input id="costo"  type="number" class="form-control" name="costo" placeholder="Ingrese valor de Costos" required/>
+		                 <input id="costo"  type="number" class="form-control" name="costo" placeholder="Ingrese valor de Costos" min="1" required/>
 	              	</div>
 	                <div class="form-group">
 		                 <label for="ventaTotal">Venta Total</label>
-		                 <input id="ventaTotal"  type="number" class="form-control" name="ventaTotal" placeholder="Ingrese valor de Venta Total" required/>
+		                 <input id="ventaTotal"  type="number" class="form-control" name="ventaTotal" placeholder="Ingrese valor de Venta Total"  min="1" required/>
 	                </div>
 	                <div class="form-group">
 		                <label for="gastosAdministrativos">Gastos Administrativos</label>
-		                <input id="gastosAdministrativos"  type="number" class="form-control" name="gastosAdm" placeholder="Ingrese valor de Gastos Administrativos" required/>
+		                <input id="gastosAdministrativos"  type="number" class="form-control" name="gastosAdm" placeholder="Ingrese valor de Gastos Administrativos" min="1" required/>
 	                </div>
 	                <div class="form-group">
 		                <label for="gastosVentas">Gastos de Ventas</label>
-		                <input id="gastosVentas"  type="number" class="form-control" name="gastosVent" placeholder="Ingrese valor de Gastos de Venta" required/>
+		                <input id="gastosVentas"  type="number" class="form-control" name="gastosVent" placeholder="Ingrese valor de Gastos de Venta"  min="1" required/>
 	                </div>
 	                <div class="form-group">
 		                 <label for="margenUtilidad">Margen de Utilidad</label>
-		                 <input  id="margenUtilidad"  type="number" class="form-control" name="margenUti" placeholder="Ingrese valor de Margen de Utilidad" required/>
+		                 <input  id="margenUtilidad"  type="number" class="form-control" name="margenUti" placeholder="Ingrese valor de Margen de Utilidad" min="1" required/>
 	                </div>
 	                <div class="form-group">
 	                	        <tr>

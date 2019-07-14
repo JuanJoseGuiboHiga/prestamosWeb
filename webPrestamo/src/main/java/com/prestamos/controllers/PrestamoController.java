@@ -29,6 +29,7 @@ public class PrestamoController {
 		 String buscarSolicitudURL = "http://localhost:8080/buscarSolicitud/"+idPropuesta;
 		 cliente = plantilla.getForObject(buscarSolicitanteURL, Solicitante.class);
 		 solicitudPrestamo = plantilla.getForObject(buscarSolicitudURL, SolicitudPrestamo.class);
+		 model.addAttribute("solicitante",cliente);
 		 model.addAttribute("solicitud",solicitudPrestamo);
 		 return "RegistrarPrestamo";
 	  }
