@@ -28,7 +28,7 @@ public class LoginController {
 		  }else if(idUsuario.equals("2")) {
 			  redireccionamiento = "ListadoSolicitudes";
 		  }else {
-			  redireccionamiento = "ListadoPropuestasRiesgos";
+			  redireccionamiento = "ListadoPropuestas";
 		  }
 		  return redireccionamiento;
 		

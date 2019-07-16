@@ -15,7 +15,7 @@
 			    <a class="nav-link" href="/listadoSolicitudes">Listado de Solicitudes</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="/listadoPropuestas">Listado de Propuestas</a>
+			    <a class="nav-link" href="listadoParaRegistrarPrestamo">Registrar Préstamos</a>
 			  </li>
 			</ul>
 			</nav>
@@ -56,11 +56,13 @@
     					 <h5 class="card-title">Estimamos que el solicitante puede llegar a ser un:</h5>
    						 <p class="card-text" th:text="${arbol}"></p>
  					 </div>
-			   </div>       
+			   </div>
+			   <a th:href="${pdf}" download="EstadosFinancieros.pdf">Descargar Estados Financieros</a>       
 		     </fieldset>
 		    </form>
        </div>
    </div>
 </section>
+
 </body>
 </html>

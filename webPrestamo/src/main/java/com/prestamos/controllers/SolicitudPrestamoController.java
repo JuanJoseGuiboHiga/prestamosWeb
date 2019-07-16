@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +41,7 @@ public class SolicitudPrestamoController {
 				  String ruta = "C:\\Users\\JuanJosé\\Documents\\pdf\\"+file.getName()+".pdf";
 				  file.transferTo(new File(ruta));
 				  RestTemplate plantilla = new RestTemplate();
-				  String pdf = URLEncoder.encode(ruta,"UTF-8");
+				  String pdf = file.getName()+".pdf";
 				  String urlServicio = "http://localhost:8080/registrarSolPres/"+solicitante.getIdSolicitante()+"/"+motivo+"/"+monto+"/"+plazo+"/"+activo+"/"+pasivo+"/"+patrimonio+"/"+costo+"/"+ventaTotal+"/"+gastosAdm+"/"+gastosVent+"/"+margenUti+"/"+pdf+"/";
 				  plantilla.getForObject(urlServicio, String.class);
 			} catch (IllegalStateException e) {
@@ -68,15 +71,16 @@ public class SolicitudPrestamoController {
 			return "redirect:/registrarPropuesta/1/100/1";
 		  }
     	
-    	@RequestMapping(value="/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdm}/{gastosVent}/{margenUti}",method=RequestMethod.GET)
+    	@RequestMapping(value="/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdm}/{gastosVent}/{margenUti}/{pdf}",method=RequestMethod.GET)
 		public String mostrarSolicitud (@PathVariable int idSolicitud,@PathVariable double activo,
 				@PathVariable double pasivo,@PathVariable double patrimonio,@PathVariable double costo,@PathVariable double ventaTotal,@PathVariable double gastosAdm,@PathVariable double gastosVent, 
-				@PathVariable double margenUti, Model model) {
+				@PathVariable double margenUti,@PathVariable String pdf, Model model) {
     		RestTemplate plantilla = new RestTemplate();
 			String urlRatios = "http://localhost:8080/generarRatios/"+activo+"/"+pasivo+"/"+patrimonio+"/"+costo+"/"+ventaTotal+"/"+gastosAdm+"/"+gastosVent+"/"+margenUti;
 			System.out.println(urlRatios);
 			RatiosFinancieros ratios = plantilla.getForObject(urlRatios, RatiosFinancieros.class);
 			model.addAttribute("ratios",ratios);
+			model.addAttribute("pdf","ftp://localhost/"+pdf);
 			String urlArbol = "http://localhost:8080/arbolDecision";
 			String arbol = plantilla.getForObject(urlArbol, String.class);
 			model.addAttribute("arbol",arbol);

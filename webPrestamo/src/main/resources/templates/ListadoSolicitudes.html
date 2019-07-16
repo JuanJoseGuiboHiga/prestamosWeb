@@ -12,9 +12,6 @@
 			    <a class="nav-link" href="/listadoSolicitudes">Listado de Solicitudes</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="/listadoPropuestas">Listado de Propuestas</a>
-			  </li>
-			  <li class="nav-item">
 			    <a class="nav-link" href="listadoParaRegistrarPrestamo">Registrar Préstamos</a>
 			  </li>
 			</ul>
@@ -55,9 +52,9 @@
 						<td th:text="${solicitud.gastosVentas}"></td>
 						<td th:text="${solicitud.margenUtilidad}"></td>
 				        <td><a th:href="@{/registrarPropuesta/{idSolicitud}/{monto}/{plazo} (idSolicitud=${solicitud.idSolicitud}, monto=${solicitud.monto},plazo=${solicitud.plazo})}">Generar Propuesta</a></td>	
-						<td><a th:href="@{/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdministrativos}/{gastosVentas}/{margenUtilidad}
+						<td><a th:href="@{/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdministrativos}/{gastosVentas}/{margenUtilidad}/{pdf}
                 		 (idSolicitud=${solicitud.idSolicitud}, activo=${solicitud.activo},pasivo=${solicitud.pasivo},patrimonio=${solicitud.patrimonio},costo=${solicitud.costo},ventaTotal=${solicitud.ventaTotal},gastosAdministrativos=${solicitud.gastosAdministrativos},
-                		 gastosVentas=${solicitud.gastosVentas},margenUtilidad=${solicitud.margenUtilidad})}">Ver Solicitud</a></td>
+                		 gastosVentas=${solicitud.gastosVentas},margenUtilidad=${solicitud.margenUtilidad},pdf=${solicitud.pdf})}">Ver Solicitud</a></td>
 				    </tr>
 				</tbody>
 			</table>
