@@ -52,9 +52,9 @@
 						<td th:text="${solicitud.gastosVentas}"></td>
 						<td th:text="${solicitud.margenUtilidad}"></td>
 				        <td><a th:href="@{/registrarPropuesta/{idSolicitud}/{monto}/{plazo} (idSolicitud=${solicitud.idSolicitud}, monto=${solicitud.monto},plazo=${solicitud.plazo})}">Generar Propuesta</a></td>	
-						<td><a th:href="@{/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdministrativos}/{gastosVentas}/{margenUtilidad}/{pdf}
+						<td><a th:href="@{/mostrarSolicitud/{idSolicitud}/{activo}/{pasivo}/{patrimonio}/{costo}/{ventaTotal}/{gastosAdministrativos}/{gastosVentas}/{margenUtilidad}/{pdf}/{monto}/{plazo}
                 		 (idSolicitud=${solicitud.idSolicitud}, activo=${solicitud.activo},pasivo=${solicitud.pasivo},patrimonio=${solicitud.patrimonio},costo=${solicitud.costo},ventaTotal=${solicitud.ventaTotal},gastosAdministrativos=${solicitud.gastosAdministrativos},
-                		 gastosVentas=${solicitud.gastosVentas},margenUtilidad=${solicitud.margenUtilidad},pdf=${solicitud.pdf})}">Ver Solicitud</a></td>
+                		 gastosVentas=${solicitud.gastosVentas},margenUtilidad=${solicitud.margenUtilidad},pdf=${solicitud.pdf}, monto=${solicitud.monto},plazo=${solicitud.plazo})}">Ver Solicitud</a></td>
 				    </tr>
 				</tbody>
 			</table>
